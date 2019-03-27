@@ -59,13 +59,30 @@ people.forEach(object => console.log(`${object.name}, ${object.jobTitle}`));
 
 // 5. Properties that aren't there --------------------------------
 
+const people2 = [
+    {
+        name: "Ben",
+        jobTitle: "Owner of Company A",
+    },
 
+    {
+        name: "Josh",
+        jobTitle: "Doctor",
+        boss: "Boss A",
+    },
+
+    {
+        name: "Betsy",
+        jobTitle: "Attorney",
+        boss: "Boss B",
+    },
+];
+
+people2.forEach(object => object.boss ? console.log(${ object.jobTitle } ${ object.name } reports to ${ object.boss }) : console.log(${ object.jobTitle } ${ object.name } doesn't report to anybody));
 
 // 6. Cracking the code -------------------------------------------
 
-'use strict';
-
-let cipher = {
+const cipher = {
     a: 1,
     b: 2,
     c: 3,
@@ -81,7 +98,7 @@ function decoder(sentence) {
             return str.charAt(cipher[str[0]]);
         } else {
             return " ";
-        };
+        }
     });
 
     return dChars.join('');
