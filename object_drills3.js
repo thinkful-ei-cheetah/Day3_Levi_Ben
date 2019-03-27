@@ -63,6 +63,34 @@ people.forEach(object => console.log(`${object.name}, ${object.jobTitle}`));
 
 // 6. Cracking the code -------------------------------------------
 
+'use strict';
+
+let cipher = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4,
+};
+
+function decoder(sentence) {
+    let eChars = [];
+    eChars = sentence.split(' ');
+
+    const dChars = eChars.map(function (str) {
+        if (cipher[str[0]] !== undefined) {
+            return str.charAt(cipher[str[0]]);
+        } else {
+            return " ";
+        };
+    });
+
+    return dChars.join('');
+
+}
+
+let eCode = 'craft block argon meter bells brown croon droop';
+console.log(decoder(eCode));
+
 // 7. Factory Functions with LOTR ---------------------------------
 
 // 8. BONUS: A Database Search ------------------------------------
