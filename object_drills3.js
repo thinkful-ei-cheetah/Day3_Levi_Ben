@@ -128,13 +128,10 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
             return `Your opponent takes ${yourAttack} damage and you receive ${yourDamage} damage.`;
         },
         weaponEquip: function (weapon) {
-            this.describe = function () {
-                console.log(
-                    `${this.name} is a ${this.race} from ${this.origin} who uses a ${weapon}`);
+            Object.assign(this, {describe: function () {console.log(`${this.name} is a ${this.race} from ${this.origin} who uses a ${weapon}`)}})
             }
         }
     };
-}
 
 const characters = [
     createCharacter("Gandalf the White", "gandalf", "Wizard", "Middle Earth", 10, 6),
@@ -148,5 +145,7 @@ const characters = [
 const findAragorn = characters.find(object => object.nickname === "aragorn").describe();
 const filterHobbits = characters.filter(object => object.race === "Hobbit");
 const filterAttack = characters.filter(object => object.attack > 5);
+characters[0].weaponEquip('Machine Gun');
+characters[0].describe();
 
 // 8. BONUS: A Database Search ------------------------------------
